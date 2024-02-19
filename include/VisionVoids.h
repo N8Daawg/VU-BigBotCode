@@ -1,3 +1,11 @@
+/*----------------------------------------------------------------------------*/
+/*                                                                            */
+/*    Module:       VisionVoids.h                                             */
+/*    Author:       Nathan Beals                                              */
+/*    Created:      Sun Feb. 18 2024                                          */
+/*    Description:  Vision Tracking programs                                  */
+/*                                                                            */
+/*----------------------------------------------------------------------------*/
 #include "VisionConfig.h"
 extern void resetDrivePositions();
 extern void coastDriveTrain();

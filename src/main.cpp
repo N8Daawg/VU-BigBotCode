@@ -2,8 +2,8 @@
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
 /*    Author:       Nathan Beals                                              */
-/*    Created:      Sat Feb 18 2023                                           */
-/*    Description:  PortaLib 2022-2023 Basic-Advanced program examples        */
+/*    Created:      Sun feb 18 2024                                           */
+/*    Description:  Main file for VU Big Bot                                  */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 

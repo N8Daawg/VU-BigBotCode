@@ -1,9 +1,9 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
-/*    Module:       Drive_PDs.h                                               */
+/*    Module:       robot-config.h                                            */
 /*    Author:       Nathan Beals                                              */
-/*    Created:      sat Feb. 18 2023                                          */
-/*    Description:  Autonimous PDS                                            */
+/*    Created:      Sun Feb. 18 2024                                          */
+/*    Description:  dexlerations of robot motors and devices                  */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 using namespace vex;
