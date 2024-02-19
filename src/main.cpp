@@ -118,7 +118,7 @@ void usercontrol(void) {
       }
     else {
       leftPower = Controller.Axis4.position() - Controller.Axis3.position();
-      rightPower = Controller.Axis2.position() + Controller.axis1.position();
+      rightPower = Controller.Axis2.position() + Controller.Axis1.position();
       //basic movement map
       FL.spin(fwd, leftPower, pct);FR.spin(fwd, rightPower, pct);
       ML.spin(fwd, leftPower, pct);MR.spin(fwd, rightPower, pct);
