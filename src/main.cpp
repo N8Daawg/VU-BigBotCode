@@ -22,7 +22,6 @@
 //
 // wings                pneumatics    H
 // ---- END VEXCODE CONFIGURED DEVICES ----
-// this is test #2 of the remote repository function
 
 #include "vex.h"
 #include "Autons.h"
