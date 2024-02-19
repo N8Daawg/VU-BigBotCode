@@ -43,6 +43,12 @@ void holdDriveTrain(){
   BL.stop(brakeType::hold);BR.stop(brakeType::hold);
 }
 
+void coastDriveTrain(){
+  FL.stop(brakeType::coast);FR.stop(brakeType::coast);
+  ML.stop(brakeType::coast);MR.stop(brakeType::coast);
+  BL.stop(brakeType::coast);BR.stop(brakeType::coast);
+}
+
 /*---------------------------------------------------------------------------*/
 /*-----------------------------Game Object Utility---------------------------*/
 /*---------------------------------------------------------------------------*/
