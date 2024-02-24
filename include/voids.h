@@ -78,6 +78,41 @@ void moverev( int goal, int velocityunit ){
   
   StopDriveTrain();
 }
+
+void arcTurnLeft(double radius, double theta ,int velocityunit){
+  SetDriveTrainVelocity(velocityunit);
+  resetDrivePositions();
+
+  double leftDistance = theta*(radius-(robotWidth/2));
+  double rightDistance = theta*(radius+(robotWidth/2));
+
+  leftDistance = leftDistance/ratio;rightDistance=rightDistance/ratio;
+
+  FL.spinFor(forward, leftDistance, degrees, false);FR.spinFor(forward, rightDistance, degrees,  false);
+  ML.spinFor(forward, leftDistance, degrees, false);MR.spinFor(forward, rightDistance, degrees,  false);
+  BL.spinFor(forward, leftDistance, degrees, false);BR.spinFor(forward, rightDistance, degrees,  true);
+  
+  
+
+  holdDriveTrain();
+}
+
+void arcTurnRight(double radius, double theta ,int velocityunit){
+  SetDriveTrainVelocity(velocityunit);
+  resetDrivePositions();
+
+  double leftDistance = theta*(radius+(robotWidth/2));
+  double rightDistance = theta*(radius-(robotWidth/2));
+
+  leftDistance = leftDistance/ratio;rightDistance=rightDistance/ratio;
+
+  FL.spinFor(forward, leftDistance, degrees, false);FR.spinFor(forward, rightDistance, degrees,  false);
+  ML.spinFor(forward, leftDistance, degrees, false);MR.spinFor(forward, rightDistance, degrees,  false);
+  BL.spinFor(forward, leftDistance, degrees, false);BR.spinFor(forward, rightDistance, degrees,  true);
+
+  holdDriveTrain();
+}
+
 void pointTurnLeft(int theta, int velocityunit){
   SetDriveTrainVelocity(velocityunit);
   resetDrivePositions();
