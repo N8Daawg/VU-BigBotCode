@@ -1,7 +1,7 @@
 {
 	"project": {
 		"name": "VU_BigBot",
-		"slot": 1,
+		"slot": 2,
 		"description": "code for the VU VexU team's Large Robot\n",
 		"platform": "V5",
 		"creationDate": "Mon, 19 Feb 2024 02:12:26 GMT",

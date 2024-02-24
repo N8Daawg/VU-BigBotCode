@@ -16,7 +16,7 @@ motor BL = motor(PORT19, ratio18_1, true);
 motor FR = motor(PORT7, ratio18_1, false);
 motor MR = motor(PORT13, ratio18_1, false);
 motor BR = motor(PORT20, ratio18_1, false);
-inertial Gyro = inertial(PORT5);
+inertial Gyro = inertial(PORT17);
 
 
 // Wall Setup

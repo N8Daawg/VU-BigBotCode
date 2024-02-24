@@ -7,6 +7,8 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #include "vex.h"
+extern double ratio;
+extern double robotWidth;
 
 /*---------------------------------------------------------------------------*/
 /*-----------------------Drivetrain Utility Functions------------------------*/
@@ -42,6 +44,89 @@ void holdDriveTrain(){
   ML.stop(brakeType::hold);MR.stop(brakeType::hold);
   BL.stop(brakeType::hold);BR.stop(brakeType::hold);
 }
+void coastDriveTrain(){
+  FL.stop(brakeType::coast);FR.stop(brakeType::coast);
+  ML.stop(brakeType::coast);MR.stop(brakeType::coast);
+  BL.stop(brakeType::coast);BR.stop(brakeType::coast);
+}
+
+/*---------------------------------------------------------------------------*/
+/*----------------------------Drivetrain Movements---------------------------*/
+/*---------------------------------------------------------------------------*/
+
+void movefwd(int  goal, int Velocity ){
+  SetDriveTrainVelocity(Velocity);
+  resetDrivePositions();
+  double theta = goal/ratio;
+
+  FL.spinFor(forward, theta, degrees, false);FR.spinFor(forward, theta, degrees,  false);
+  ML.spinFor(forward, theta, degrees, false);MR.spinFor(forward, theta, degrees,  false);
+  BL.spinFor(forward, theta, degrees, false);BR.spinFor(forward, theta, degrees,  true);
+  
+  StopDriveTrain();
+}
+
+
+void moverev( int goal, int velocityunit ){
+  SetDriveTrainVelocity(velocityunit);
+  resetDrivePositions();
+  double theta = goal/ratio;
+
+  FL.spinFor(reverse, theta, degrees, false);FR.spinFor(reverse, theta, degrees,  false);
+  ML.spinFor(reverse, theta, degrees, false);MR.spinFor(reverse, theta, degrees,  false);
+  BL.spinFor(reverse, theta, degrees, false);BR.spinFor(reverse, theta, degrees,  true);
+  
+  StopDriveTrain();
+}
+void pointTurnLeft(int theta, int velocityunit){
+  SetDriveTrainVelocity(velocityunit);
+  resetDrivePositions();
+  double goal = theta*(robotWidth/2);
+  goal = goal/ratio;
+
+  FL.spinFor(reverse, goal, degrees, false);FR.spinFor(forward, goal, degrees,  false);
+  ML.spinFor(reverse, goal, degrees, false);MR.spinFor(forward, goal, degrees,  false);
+  BL.spinFor(reverse, goal, degrees, false);BR.spinFor(forward, goal, degrees,  true);
+  
+  holdDriveTrain();
+}
+
+void pointTurnRight(int theta, int velocityunit){
+  SetDriveTrainVelocity(velocityunit);
+  resetDrivePositions();
+  double goal = theta*(robotWidth/2);
+  goal = goal/ratio;
+
+  FL.spinFor(forward, goal, degrees, false);FR.spinFor(reverse, goal, degrees,  false);
+  ML.spinFor(forward, goal, degrees, false);MR.spinFor(reverse, goal, degrees,  false);
+  BL.spinFor(forward, goal, degrees, false);BR.spinFor(reverse, goal, degrees,  true);
+  
+  holdDriveTrain();
+}
+
+void turnleft(int theta, int velocityunit){
+  SetDriveTrainVelocity(velocityunit);
+  resetDrivePositions();
+
+  FL.spinFor(reverse, theta, degrees, false);FR.spinFor(forward, theta, degrees,  false);
+  ML.spinFor(reverse, theta, degrees, false);MR.spinFor(forward, theta, degrees,  false);
+  BL.spinFor(reverse, theta, degrees, false);BR.spinFor(forward, theta, degrees,  true);
+  
+  StopDriveTrain();
+}
+
+
+void turnright(int theta, int velocityunit){
+  SetDriveTrainVelocity(velocityunit);
+  resetDrivePositions();
+
+  FL.spinFor(forward, theta, degrees, false);FR.spinFor(reverse, theta, degrees,  false);
+  ML.spinFor(forward, theta, degrees, false);MR.spinFor(reverse, theta, degrees,  false);
+  BL.spinFor(forward, theta, degrees, false);BR.spinFor(reverse, theta, degrees,  true);
+  
+  holdDriveTrain();
+}
+
 
 void coastDriveTrain(){
   FL.stop(brakeType::coast);FR.stop(brakeType::coast);
