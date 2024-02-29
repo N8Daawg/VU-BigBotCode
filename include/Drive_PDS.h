@@ -2,8 +2,8 @@
 /*                                                                            */
 /*    Module:       Drive_PDs.h                                               */
 /*    Author:       Nathan Beals                                              */
-/*    Created:      Sun Feb 18, 2024                                          */
-/*    Description:  Autonimous PIDS                                           */
+/*    Created:      Thu Feb. 23 2023                                          */
+/*    Description:  Autonimous PDS                                            */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #include "vex.h"
@@ -12,8 +12,15 @@ extern double robotWidth;
 extern double getPositionAverages(motor front, motor middle, motor back);
 extern double getVelocityAverages(motor front, motor middle, motor back);
 extern void resetDrivePositions();
-extern void holdDriveTrain();
+extern void StopDriveTrain(brakeType Brake);
 
+/**
+ * @brief  PID that moves the robot in an arc shape
+ * @note   Cuttently mostly working. needs slight tuning
+ * 
+ * @param desiredPos the length of the semi-circle the robot will travel
+ * @param dir        a boolean for the direction of turn (true=left, false=right)
+*/
 void arcturn(int desiredPos, bool dir){ // desiredPOS: distance the robot drives in inches. 360 degrees = 29.3215 inches
 // 1 degrees = 0.08144868 in
   
@@ -98,6 +105,12 @@ void arcturn(int desiredPos, bool dir){ // desiredPOS: distance the robot drives
 
 }
 
+/**
+ * @brief PID that moves the robot in an straight line
+ * @note  mostly working. would like to add integrator
+ * 
+ * @param desiredPos the distance in inches the robot will travel
+*/
 void DrivePD(int DesiredPos){
   // control variables
   double kp = 0.15; // controls how fast the program's rise time 
@@ -165,6 +178,12 @@ void DrivePD(int DesiredPos){
   holdDriveTrain();
 }
 
+/**
+ * @brief PID that moves the robot in an straight line
+ * @note  mostly working. better to use drivePD with negative distance
+ * 
+ * @param desiredPos the distance in inches the robot will travel
+*/
 void reversePD(int DesiredPos){
   // control variables
   double kp = 0.15; // controls how fast the program's rise time 
@@ -231,6 +250,14 @@ void reversePD(int DesiredPos){
   holdDriveTrain();
 }
 
+/**
+ * @brief PID spins the robot on its axis
+ * @note  requires gyroscope
+ * @note  cuttently not working. spins indefinetly. needs math work, speed control and tuning,
+ * 
+ * @param desiredPos the angle in degrees the robot will rotate to
+ * @param dir        the direction the robot will rotate
+*/
 void GyroTurn_PD(int desiredPos, bool dir){
   double kp = 0.15; // controls how fast the program's rise time 
   double kd = 0.05; // controls how fast the program reacts to approaching the targes
