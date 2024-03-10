@@ -3,7 +3,7 @@
 /*    Module:       robot-config.h                                            */
 /*    Author:       Nathan Beals                                              */
 /*    Created:      Sun Feb. 18 2024                                          */
-/*    Description:  dexlerations of robot motors and devices                  */
+/*    Description:  declerations of robot motors and devices                  */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 using namespace vex;

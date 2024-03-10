@@ -3,7 +3,7 @@
 /*    Module:       VisionConfig.h                                            */
 /*    Author:       Nathan Beals                                              */
 /*    Created:      Sun Feb. 18 2024                                          */
-/*    Description:  dexlerations of Vision sensor and color signatures        */
+/*    Description:  declerations of Vision sensor and color signatures        */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #include "vex.h"

@@ -3,7 +3,7 @@
 /*    Module:       Voids.h                                                   */
 /*    Author:       Nathan Beals                                              */
 /*    Created:      sat Feb. 18 2023                                          */
-/*    Description:  Autonimous voids                                          */
+/*    Description:  Autonomous voids                                          */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #include "vex.h"
