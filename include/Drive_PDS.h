@@ -101,7 +101,7 @@ void arcturn(int desiredPos, bool dir){ // desiredPOS: distance the robot drives
   //Gyro.setRotation(prevRotaion+Gyro.rotation(), rotationUnits::deg);
   //double totaldistance = (total_progress/loopCount)*ratio;
   Brain.Screen.print(avgMotorspeed);
-  holdDriveTrain();
+  StopDriveTrain(hold);
 
 }
 
@@ -175,7 +175,7 @@ void DrivePD(int DesiredPos){
       errorCount += 1;
     }
   }
-  holdDriveTrain();
+  StopDriveTrain(hold);
 }
 
 /**
@@ -247,7 +247,7 @@ void reversePD(int DesiredPos){
       errorCount ++;
     }
   }
-  holdDriveTrain();
+  StopDriveTrain(hold);
 }
 
 /**
@@ -312,5 +312,5 @@ void GyroTurn_PD(int desiredPos, bool dir){
       errorCount ++;
     }
   }
-  holdDriveTrain();
+  StopDriveTrain(hold);
 }

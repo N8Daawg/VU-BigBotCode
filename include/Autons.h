@@ -3,7 +3,7 @@
 /*    Module:       Drive_PDs.h                                               */
 /*    Author:       Nathan Beals                                              */
 /*    Created:      Thu Feb. 23 2023                                          */
-/*    Description:  Autonamous codes                                          */
+/*    Description:  Autonmous codes                                          */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 

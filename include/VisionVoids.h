@@ -8,8 +8,7 @@
 /*----------------------------------------------------------------------------*/
 #include "VisionConfig.h"
 extern void resetDrivePositions();
-extern void coastDriveTrain();
-extern void holdDriveTrain();
+extern void StopDriveTrain(brakeType Brake);
 
 /**
  * @brief void created to move the robot to an object using a vision sensor
@@ -87,7 +86,7 @@ void Vtrack() {
     }
   }
 
-  coastDriveTrain();
+  StopDriveTrain(coast);
 }
 
 /**
@@ -108,5 +107,5 @@ void spinToTarget(){
 
     wait(20, msec);
   }
-  holdDriveTrain();
+  StopDriveTrain(hold);
 }
