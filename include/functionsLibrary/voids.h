@@ -103,14 +103,14 @@ void pointTurnRight(int theta, int velocityunit);
 void pointTurnLeft(int theta, int velocityunit);
 
 /**
- * @brief old point turn function
+ * @brief used to swing the right side of the robot
 */
-void turnleft(int theta, int velocityunit);
+void sidePivotleft(double theta, int velocityunit);
 
 /**
- * @brief old point turn function
+ * @brief used to swing the right side of the robot
 */
-void turnright(int theta, int velocityunit);
+void sidePivotright(double theta, int velocityunit);
 
 /*---------------------------------------------------------------------------*/
 /*-----------------------------Game Object Utility---------------------------*/

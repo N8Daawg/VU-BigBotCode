@@ -202,7 +202,7 @@ void GyroTurn_PD2(int desiredPos, bool dir){
 
   while(errorCount<3){
     // calculate error
-    error = desiredPos - Gyro.angle();
+    error = desiredPos - getHeading(dir);
     
     // calculate derivative
     derivative = (prev_Error-error)/0.02;
