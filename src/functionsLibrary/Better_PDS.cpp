@@ -8,22 +8,8 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #include "vex.h"
-extern double ratio;
-extern double robotWidth;
-extern double getPositionAverages(motor front, motor middle, motor back);
-extern double getVelocityAverages(motor front, motor middle, motor back);
-extern void resetDrivePositions();
-extern void StopDriveTrain(brakeType Brake);
-extern controller Controller;
 
-/**
- * @brief Upgraded PID that moves the robot in an arc shape
- * @note  cuttently not working. needs tuning and testing
- * 
- * @param radius the radius in inches from the center of the arc to the center of the robot
- * @param theta  the angle, in degrees, of the semi-circle the robot will turn to
- * @param dir    a boolean for the direction of turn (true=left, false=right)
-*/
+
 void arcturn2(int radius, double theta, bool dir){
   // 1 degrees = 0.08144868 in
   double desiredPos = (theta/360)*M_PI*radius*2;
@@ -116,12 +102,6 @@ void arcturn2(int radius, double theta, bool dir){
 }
 
 
-/**
- * @brief Upgraded PID that moves the robot in an straight line
- * @note  cuttently not working. needs tuning and testing
- * 
- * @param desiredPos the distance in inches the robot will travel
-*/
 void DrivePD2(int desiredPos){
   // 1 degrees = 0.08144868 in
   
@@ -202,14 +182,7 @@ void DrivePD2(int desiredPos){
   StopDriveTrain(hold);
 }
 
-/**
- * @brief Upgraded PID that spins the robot on its axis
- * @note  requires gyroscope
- * @note  cuttently not working. spins indefinetly. needs math work, speed control and tuning,
- * 
- * @param desiredPos the angle in degrees the robot will rotate to
- * @param dir        the direction the robot will rotate
-*/
+
 void GyroTurn_PD2(int desiredPos, bool dir){
   double kp = (desiredPos/80); //0.2// proportional control: gets smaller as error decreases
   double ki = kp*(0.414/0.409); //0.35; // integrater: accumulation of error

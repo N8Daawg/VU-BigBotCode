@@ -6,15 +6,9 @@
 /*    Description:  Vision Tracking programs                                  */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
+#include "vex.h"
 #include "VisionConfig.h"
-extern void resetDrivePositions();
-extern void StopDriveTrain(brakeType Brake);
 
-/**
- * @brief void created to move the robot to an object using a vision sensor
- * @note  old code, not tested. not for current game
- * @note  Created in case we wanted to add a vision sensor
-*/
 void Vtrack() {
   resetDrivePositions();
 
@@ -89,11 +83,7 @@ void Vtrack() {
   StopDriveTrain(coast);
 }
 
-/**
- * @brief simple void that turn robot to designated target with vision sensor
- * @note  old code, not tested. not for current game
- * @note  Created in case we wanted to add a vision sensor
-*/
+
 void spinToTarget(){
   Vision1.takeSnapshot(matchTriball);
   int x = 0;

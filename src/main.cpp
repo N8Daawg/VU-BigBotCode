@@ -24,7 +24,6 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-#include "Autons.h"
 
 using namespace vex;
 

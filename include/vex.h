@@ -17,6 +17,17 @@
 
 #include "robot-config.h"
 
+extern double ratio;
+extern double robotWidth;
+extern int RwingCount;
+extern int LwingCount;
+
+#include "Autons.h"
+#include "functionsLibrary/Drive_PDS.h"
+#include "functionsLibrary/Better_PDS.h"
+#include "functionsLibrary/VisionVoids.h"
+#include "functionsLibrary/voids.h"
+
 #define waitUntil(condition)                                                   \
   do {                                                                         \
     wait(5, msec);                                                             \
