@@ -10,7 +10,8 @@
 
 void RunDriveTrain(int pos){
   FL.spinFor(pos, degrees, false);FR.spinFor(pos, degrees, false);
-  ML.spinFor(pos, degrees, false);MR.spinFor(pos, degrees, false);
+  FML.spinFor(pos, degrees, false);FMR.spinFor(pos, degrees, false);
+  BML.spinFor(pos, degrees, false);BMR.spinFor(pos, degrees, false);
   BL.spinFor(pos, degrees, false);BR.spinFor(pos, degrees, true);
   resetDrivePositions();
 }
@@ -18,7 +19,8 @@ void RunDriveTrain(int pos){
 
 void RunFwd(int vel){
   FL.spin(fwd,vel,pct);FR.spin(fwd,vel*0.5,pct);
-  ML.spin(fwd,vel,pct);MR.spin(fwd,vel*0.5,pct);
+  FML.spin(fwd,vel,pct);FMR.spin(fwd,vel*0.5,pct);
+  FML.spin(fwd,vel,pct);FMR.spin(fwd,vel*0.5,pct);
   BL.spin(fwd,vel,pct);BR.spin(fwd,vel*0.5,pct);
   resetDrivePositions();
 }
@@ -26,7 +28,8 @@ void RunFwd(int vel){
 
 void RunRev(int vel){
   FL.spin(reverse,vel,pct);FR.spin(reverse,vel,pct);
-  ML.spin(reverse,vel,pct);MR.spin(reverse,vel,pct);
+  FML.spin(reverse,vel,pct);FMR.spin(reverse,vel,pct);
+  BML.spin(reverse,vel,pct);BMR.spin(reverse,vel,pct);
   BL.spin(reverse,vel,pct);BR.spin(reverse,vel,pct);
   resetDrivePositions();
 }
@@ -35,7 +38,8 @@ void RunRev(int vel){
 void TurnDriveTrain(int pos, bool dir){
   if (dir) pos = -pos;
   FL.spinFor(pos, degrees, false);FR.spinFor(-pos, degrees, false);
-  ML.spinFor(pos, degrees, false);MR.spinFor(-pos, degrees, false);
+  FML.spinFor(pos, degrees, false);FMR.spinFor(-pos, degrees, false);
+  BML.spinFor(pos, degrees, false);BMR.spinFor(-pos, degrees, false);
   BL.spinFor(pos, degrees, false);BR.spinFor(-pos, degrees, true);
   resetDrivePositions();
 }

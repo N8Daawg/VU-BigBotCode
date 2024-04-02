@@ -69,7 +69,8 @@ void Vtrack() {
     SpeedR = speed*scaleR;
 
     FL.spin(fwd, SpeedL, pct);FR.spin(fwd, SpeedR, pct);
-    ML.spin(fwd, SpeedL, pct);MR.spin(fwd, SpeedR, pct);
+    FML.spin(fwd, SpeedL, pct);FMR.spin(fwd, SpeedR, pct);
+    BML.spin(fwd, SpeedL, pct);BMR.spin(fwd, SpeedR, pct);
     BL.spin(fwd, SpeedL, pct);BR.spin(fwd, SpeedR, pct);
     
     
@@ -92,7 +93,8 @@ void spinToTarget(){
     Vision1.takeSnapshot(matchTriball);
 
     FL.spin(directionType::fwd, 75, pct);FR.spin(directionType::rev, 75, pct);
-    ML.spin(directionType::fwd, 75, pct);MR.spin(directionType::fwd, 75, pct);
+    FML.spin(directionType::fwd, 75, pct);FMR.spin(directionType::rev, 75, pct);
+    BML.spin(directionType::fwd, 75, pct);BMR.spin(directionType::rev, 75, pct);
     BL.spin(directionType::fwd, 75, pct);BR.spin(directionType::rev, 75, pct);
 
     wait(20, msec);

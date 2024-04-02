@@ -14,8 +14,10 @@ extern brain Brain;
 
 // Drivetrain Setup
 extern motor FL; extern motor FR;
-extern motor ML; extern motor MR;
+extern motor FML; extern motor FMR;
+extern motor BML; extern motor BMR;
 extern motor BL; extern motor BR;
+
 extern inertial Gyro;
 
 extern pneumatics Rwing;

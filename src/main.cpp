@@ -111,15 +111,16 @@ void usercontrol(void) {
        Controller.Axis2.position() <  deadzone && Controller.Axis2.position() < -deadzone &&
        Controller.Axis3.position() <  deadzone && Controller.Axis3.position() < -deadzone &&
        Controller.Axis4.position() <  deadzone && Controller.Axis4.position() < -deadzone ) {
-        FL.stop(coast);ML.stop(coast);BL.stop(coast);
-        FR.stop(coast);MR.stop(coast);BR.stop(coast);
+        FL.stop(coast);FML.stop(coast);BML.stop(coast);BL.stop(coast);
+        FR.stop(coast);FMR.stop(coast);BMR.stop(coast);BR.stop(coast);
       }
     else {
       leftPower = Controller.Axis4.position() - Controller.Axis3.position();
       rightPower = Controller.Axis2.position() + Controller.Axis1.position();
       //basic movement map
       FL.spin(fwd, leftPower, pct);FR.spin(fwd, rightPower, pct);
-      ML.spin(fwd, leftPower, pct);MR.spin(fwd, rightPower, pct);
+      FML.spin(fwd, leftPower, pct);FMR.spin(fwd, rightPower, pct);
+      BML.spin(fwd, leftPower, pct);BMR.spin(fwd, rightPower, pct);
       BL.spin(fwd, leftPower, pct);BR.spin(fwd, rightPower, pct);
       }
 

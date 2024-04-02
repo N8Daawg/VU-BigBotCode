@@ -11,10 +11,13 @@ brain Brain;
 
 // DriveTrain Set up
 motor FL = motor(PORT16, ratio18_1, true);
-motor ML = motor(PORT12, ratio18_1, true);
+motor FML = motor(PORT12, ratio18_1, true);
+motor BML = motor(PORT12, ratio18_1, true);
 motor BL = motor(PORT19, ratio18_1, true);
+
 motor FR = motor(PORT7, ratio18_1, false);
-motor MR = motor(PORT13, ratio18_1, false);
+motor FMR = motor(PORT13, ratio18_1, false);
+motor BMR = motor(PORT13, ratio18_1, false);
 motor BR = motor(PORT20, ratio18_1, false);
 inertial Gyro = inertial(PORT17);
 

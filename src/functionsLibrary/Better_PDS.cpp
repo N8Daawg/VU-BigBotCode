@@ -47,13 +47,13 @@ void arcturn2(int radius, double theta, bool dir){
   while (errorCount<3 && rotation<theta){
     rotation = Gyro.rotation();
     // turn distance of the left track into theta and back to distance of the robot
-    LeftAvg = radius*getPositionAverages(FL, ML, BL)/leftRadius;
-    RightAvg = radius*getPositionAverages(FR, MR, BR)/rightRadius;
+    LeftAvg = radius*getPositionAverages(FL, FML, BML, BL)/leftRadius;
+    RightAvg = radius*getPositionAverages(FR, FMR, BMR, BR)/rightRadius;
     progress = (LeftAvg + RightAvg)/2; //total distance traveled
 
     // turn tangential velocity of the left track into rotational velocity and find difference. 
-    AveLSpeed = getVelocityAverages(FL, ML, BL)/leftRadius;
-    AveRSpeed = getVelocityAverages(FR, MR, BR)/rightRadius;
+    AveLSpeed = getVelocityAverages(FL, FML, BML, BL)/leftRadius;
+    AveRSpeed = getVelocityAverages(FR, FMR, BMR, BR)/rightRadius;
     ang = (AveRSpeed)-(AveLSpeed);
 
     // calculate error
@@ -86,12 +86,10 @@ void arcturn2(int radius, double theta, bool dir){
     RightMotorSpeed=-1;
 
     
-    FL.spin(forward, LeftMotorSpeed, pct);
-    ML.spin(forward, LeftMotorSpeed, pct);
-    BL.spin(forward, LeftMotorSpeed, pct);
-    FR.spin(forward, RightMotorSpeed, pct);
-    MR.spin(forward, RightMotorSpeed, pct);
-    BR.spin(forward, RightMotorSpeed, pct);
+    FL.spin(forward, LeftMotorSpeed, pct);FR.spin(forward, RightMotorSpeed, pct);
+    FML.spin(forward, LeftMotorSpeed, pct);FMR.spin(forward, RightMotorSpeed, pct);
+    BML.spin(forward, LeftMotorSpeed, pct);BMR.spin(forward, RightMotorSpeed, pct);
+    BL.spin(forward, LeftMotorSpeed, pct);BR.spin(forward, RightMotorSpeed, pct);
 
     loopCount++;
     prev_Error = error;
@@ -130,8 +128,8 @@ void DrivePD2(int desiredPos){
 
   while(errorCount<3){
     // average the position values
-    LeftAvg = getPositionAverages(FL, ML, BL);
-    RightAvg = getPositionAverages(FR, MR, BR);
+    LeftAvg = getPositionAverages(FL, FML, BML, BL);
+    RightAvg = getPositionAverages(FR, FMR, BMR, BR);
     progress = (LeftAvg + RightAvg)/2;
     ang = Gyro.rotation();
     
@@ -164,12 +162,10 @@ void DrivePD2(int desiredPos){
     if (RightMotorSpeed > -1 && RightMotorSpeed<0)
     RightMotorSpeed=-1;
 
-    FL.spin(forward, LeftMotorSpeed, pct);
-    ML.spin(forward, LeftMotorSpeed, pct);
-    BL.spin(forward, LeftMotorSpeed, pct);
-    FR.spin(forward, RightMotorSpeed, pct);
-    MR.spin(forward, RightMotorSpeed, pct);
-    BR.spin(forward, RightMotorSpeed, pct);
+    FL.spin(forward, LeftMotorSpeed, pct);FR.spin(forward, RightMotorSpeed, pct);
+    FML.spin(forward, LeftMotorSpeed, pct);FMR.spin(forward, RightMotorSpeed, pct);
+    BML.spin(forward, LeftMotorSpeed, pct);BMR.spin(forward, RightMotorSpeed, pct);
+    BL.spin(forward, LeftMotorSpeed, pct);BR.spin(forward, RightMotorSpeed, pct);
 
     prev_Error = error;
     loopCount++;
@@ -219,16 +215,16 @@ void GyroTurn_PD2(int desiredPos, bool dir){
     adjustedSpeed=-1;
 
     if (dir == true){
-      FL.spin(reverse, adjustedSpeed, pct);
-      BL.spin(reverse, adjustedSpeed, pct);
-      FR.spin(forward, adjustedSpeed, pct);
-      BR.spin(forward, adjustedSpeed, pct);
+      FL.spin(reverse, adjustedSpeed, pct);FR.spin(forward, adjustedSpeed, pct);
+      FML.spin(reverse, adjustedSpeed, pct);FMR.spin(forward, adjustedSpeed, pct);
+      BML.spin(reverse, adjustedSpeed, pct);BMR.spin(forward, adjustedSpeed, pct);
+      BL.spin(reverse, adjustedSpeed, pct);BR.spin(forward, adjustedSpeed, pct);
     }
     else {
-      FL.spin(forward, adjustedSpeed, pct);
-      BL.spin(forward, adjustedSpeed, pct);
-      FR.spin(reverse, adjustedSpeed, pct);
-      BR.spin(reverse, adjustedSpeed, pct);    
+      FL.spin(forward, adjustedSpeed, pct);FR.spin(reverse, adjustedSpeed, pct);
+      FML.spin(forward, adjustedSpeed, pct);FMR.spin(reverse, adjustedSpeed, pct);
+      BML.spin(forward, adjustedSpeed, pct);BMR.spin(reverse, adjustedSpeed, pct);
+      BL.spin(forward, adjustedSpeed, pct);BR.spin(reverse, adjustedSpeed, pct); 
     }
 
     prev_Error = error;

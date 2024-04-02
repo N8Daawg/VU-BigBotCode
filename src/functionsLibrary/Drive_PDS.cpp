@@ -44,13 +44,13 @@ void arcturn(int desiredPos, bool dir){ // desiredPOS: distance the robot drives
   }
   while(errorCount<3){
     // turn distance of the left track into theta and back to distance of the robot
-    LeftAvg = radius*getPositionAverages(FL,ML,BL)/leftRadius;
-    RightAvg = radius*getPositionAverages(FR,MR,BR)/rightRadius;
+    LeftAvg = radius*getPositionAverages(FL,FML,BML,BL)/leftRadius;
+    RightAvg = radius*getPositionAverages(FR,FMR,BMR,BR)/rightRadius;
     progress = (LeftAvg + RightAvg)/2; //total distance traveled
     // turn tangential velocity of the left track into rotational velocity and average out. 
     
-    AveLSpeed = getVelocityAverages(FL,ML,BL)/leftRadius;
-    AveRSpeed = getVelocityAverages(FR,MR,BR)/rightRadius;
+    AveLSpeed = getVelocityAverages(FL,FML,BML,BL)/leftRadius;
+    AveRSpeed = getVelocityAverages(FR,FMR,BMR,BR)/rightRadius;
     ang = (AveRSpeed)-(AveLSpeed);
 
     // calculate error
@@ -76,7 +76,8 @@ void arcturn(int desiredPos, bool dir){ // desiredPOS: distance the robot drives
 
     
     FL.spin(forward, LeftMotorSpeed, pct);FR.spin(forward, RightMotorSpeed, pct);
-    ML.spin(forward, LeftMotorSpeed, pct);MR.spin(forward, RightMotorSpeed, pct);
+    FML.spin(forward, LeftMotorSpeed, pct);FMR.spin(forward, RightMotorSpeed, pct);
+    BML.spin(forward, LeftMotorSpeed, pct);BMR.spin(forward, RightMotorSpeed, pct);
     BL.spin(forward, LeftMotorSpeed, pct);BR.spin(forward, RightMotorSpeed, pct);
 
     loopCount++;
@@ -118,14 +119,14 @@ void DrivePD(int DesiredPos){
 
   while(errorCount<3){
     // average the position values
-    LeftAvg = getPositionAverages(FL,ML,BL);
-    RightAvg = getPositionAverages(FR,MR,BR);
+    LeftAvg = getPositionAverages(FL,FML,BML,BL);
+    RightAvg = getPositionAverages(FR,FMR,BMR,BR);
     progress = (LeftAvg + RightAvg)/2;
     //ang = Gyro.rotation();
 
     // find the difference in motor speeds (if no gyro sensor)
-    AveLSpeed = getVelocityAverages(FL,ML,BL);
-    AveRSpeed = getVelocityAverages(FR,MR,BR);
+    AveLSpeed = getVelocityAverages(FL,FML,BML,BL);
+    AveRSpeed = getVelocityAverages(FR,FMR,BMR,BR);
     ang = (AveRSpeed)-(AveLSpeed);
 
     // calculate error
@@ -149,7 +150,8 @@ void DrivePD(int DesiredPos){
     RightMotorSpeed=-1;
 
     FL.spin(forward, LeftMotorSpeed, pct);FR.spin(forward, RightMotorSpeed, pct);
-    ML.spin(forward, LeftMotorSpeed, pct);MR.spin(forward, RightMotorSpeed, pct);
+    FML.spin(forward, LeftMotorSpeed, pct);FMR.spin(forward, RightMotorSpeed, pct);
+    BML.spin(forward, LeftMotorSpeed, pct);BMR.spin(forward, RightMotorSpeed, pct);
     BL.spin(forward, LeftMotorSpeed, pct);BR.spin(forward, RightMotorSpeed, pct);
 
     prev_Error = error;
@@ -185,8 +187,8 @@ void reversePD(int DesiredPos){
 
   while(errorCount<3){
     // average the position values
-    LeftAvg = getPositionAverages(FL,ML,BL);
-    RightAvg = getPositionAverages(FR,MR,BR);
+    LeftAvg = getPositionAverages(FL,FML,BML,BL);
+    RightAvg = getPositionAverages(FR,FMR,BML,BR);
 
     progress = (LeftAvg + RightAvg)/2;
     ang = Gyro.rotation(); 
@@ -216,7 +218,8 @@ void reversePD(int DesiredPos){
     RightMotorSpeed=-1;
 
     FL.spin(reverse, LeftMotorSpeed, pct);FR.spin(reverse, RightMotorSpeed, pct);
-    ML.spin(reverse, LeftMotorSpeed, pct);MR.spin(reverse, RightMotorSpeed, pct);
+    FML.spin(reverse, LeftMotorSpeed, pct);FMR.spin(reverse, RightMotorSpeed, pct);
+    BML.spin(reverse, LeftMotorSpeed, pct);BMR.spin(reverse, RightMotorSpeed, pct);
     BL.spin(reverse, LeftMotorSpeed, pct);BR.spin(reverse, RightMotorSpeed, pct);
 
     prev_Error = error;
@@ -268,12 +271,14 @@ void GyroTurn_PD(int desiredPos, bool dir){
 
     if (dir == true){
       FL.spin(reverse, LeftMotorSpeed, pct);FR.spin(forward, RightMotorSpeed, pct);
-      ML.spin(reverse, LeftMotorSpeed, pct);MR.spin(forward, RightMotorSpeed, pct);
+      FML.spin(reverse, LeftMotorSpeed, pct);FMR.spin(forward, RightMotorSpeed, pct);
+      BML.spin(reverse, LeftMotorSpeed, pct);BMR.spin(forward, RightMotorSpeed, pct);
       BL.spin(reverse, LeftMotorSpeed, pct);BR.spin(forward, RightMotorSpeed, pct);
     }
     else {
       FL.spin(forward, LeftMotorSpeed, pct);FR.spin(reverse, RightMotorSpeed, pct);
-      ML.spin(forward, LeftMotorSpeed, pct);MR.spin(reverse, RightMotorSpeed, pct);
+      FML.spin(forward, LeftMotorSpeed, pct);FMR.spin(reverse, RightMotorSpeed, pct);
+      BML.spin(forward, LeftMotorSpeed, pct);BMR.spin(reverse, RightMotorSpeed, pct);
       BL.spin(forward, LeftMotorSpeed, pct);BR.spin(reverse, RightMotorSpeed, pct); 
     }
 

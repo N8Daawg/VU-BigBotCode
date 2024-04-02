@@ -20,7 +20,7 @@ double getHeading(bool dir);
  * 
  * @returns average position of motor group
 */
-double getPositionAverages(motor front, motor middle, motor back);
+double getPositionAverages(motor front, motor Fmiddle, motor Bmiddle, motor back);
 
 /**
  * @brief function to get average velocity of motor group
@@ -29,7 +29,7 @@ double getPositionAverages(motor front, motor middle, motor back);
  * 
  * @returns average velocity of motor group
 */
-double getVelocityAverages(motor front, motor middle, motor back);
+double getVelocityAverages(motor front, motor Fmiddle, motor Bmiddle, motor back);
 
 /**
  * @brief function to set the average velocity of a drivetrain
