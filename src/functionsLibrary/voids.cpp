@@ -68,7 +68,6 @@ void movefwd(int  goal, int Velocity ){
   FML.spinFor(forward, theta, degrees, false);FMR.spinFor(forward, theta, degrees,  false);
   BML.spinFor(forward, theta, degrees, false);BMR.spinFor(forward, theta, degrees,  false);
   BL.spinFor(forward, theta, degrees, false);BR.spinFor(forward, theta, degrees,  true);
-  
   StopDriveTrain(brake);
 }
 
@@ -82,7 +81,6 @@ void moverev( int goal, int velocityunit ){
   FML.spinFor(reverse, theta, degrees, false);FMR.spinFor(reverse, theta, degrees,  false);
   BML.spinFor(reverse, theta, degrees, false);BMR.spinFor(reverse, theta, degrees,  false);
   BL.spinFor(reverse, theta, degrees, false);BR.spinFor(reverse, theta, degrees,  true);
-  
   StopDriveTrain(brake);
 }
 
@@ -101,7 +99,6 @@ void arcTurnLeft(int radius, int theta, int velocityunit){
   FML.spinFor(forward, leftDistance, degrees, leftspeed, velocityUnits::pct, false);FMR.spinFor(forward, rightDistance, degrees, rightspeed, velocityUnits::pct, false);
   BML.spinFor(forward, leftDistance, degrees, leftspeed, velocityUnits::pct, false);BMR.spinFor(forward, rightDistance, degrees, rightspeed, velocityUnits::pct, false);
   BL.spinFor(forward, leftDistance, degrees, leftspeed, velocityUnits::pct, false);BR.spinFor(forward, rightDistance, degrees, rightspeed, velocityUnits::pct, true);
-
   StopDriveTrain(hold);
 }
 

@@ -209,7 +209,7 @@ void GyroTurn_PD2(int desiredPos, bool dir){
     adjustedSpeed = (error * kp) + (integral*ki)+(derivative*kd);
 
 
-    if(0<adjustedSpeed<1)
+    if (adjustedSpeed > 0 && adjustedSpeed < 1)
     adjustedSpeed=1;
     if (adjustedSpeed > -1 && adjustedSpeed<0)
     adjustedSpeed=-1;
